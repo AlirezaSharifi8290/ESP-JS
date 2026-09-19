@@ -311,7 +311,8 @@ esptool --chip esp32 write-flash 0x0 ESP-JS-AIO.bin
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/AlirezaSharifi8290/ESP-JS
+
 cd esp-js-os
 ```
 
