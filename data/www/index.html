@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>ESP-JS OS</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="authView" class="wrap auth">
+  <section class="authCard">
+    <h1>ESP-JS OS</h1>
+    <p id="authDescription">Loading authentication…</p>
+    <div id="setupFields" class="hidden">
+      <div class="field"><label for="setupCode">First-boot setup code</label><input id="setupCode" type="text" maxlength="64" autocomplete="off" spellcheck="false" placeholder="Paste the code printed in Serial Monitor"></div>
+      <div class="field"><label for="setupPassword">New password</label><input id="setupPassword" type="password" maxlength="128" autocomplete="new-password"></div>
+      <div class="field"><label for="setupPassword2">Confirm password</label><input id="setupPassword2" type="password" maxlength="128" autocomplete="new-password"></div>
+      <div class="hint">Use at least 8 characters. The setup code is a one-time bootstrap secret; it is not sent directly to the ESP32.</div>
+      <div class="authActions"><button id="setupBtn" class="primary">Set password</button></div>
+    </div>
+    <div id="loginFields" class="hidden">
+      <div class="field"><label for="loginPassword">Password</label><input id="loginPassword" type="password" maxlength="128" autocomplete="current-password"></div>
+      <div class="authActions"><button id="loginBtn" class="primary">Unlock</button></div>
+    </div>
+    <div id="authError" class="error" role="alert"></div>
+  </section>
+</div>
+
+<div id="appView" class="wrap hidden">
+  <div class="top"><div><div class="brand">ESP-JS OS</div><div class="badge">C/C++ system core · JavaScript apps · LittleFS</div></div><div class="toolbar"><span id="runBadge" class="pill">idle</span><button id="passwordBtn">Password</button><button id="logoutBtn">Lock</button></div></div>
+  <div class="grid">
+    <section class="panel side">
+      <h3>Applications</h3>
+      <div class="apps" id="apps"></div>
+      <div class="sep"></div>
+      <div class="toolbar"><button class="primary" id="newBtn">+ New app</button><button id="refreshBtn">Refresh</button></div>
+      <div class="hint">Names may use letters, digits, <code>-</code>, and <code>_</code>. One app runs at a time.</div>
+    </section>
+    <section class="panel editor">
+      <h3>App editor</h3>
+      <div class="row"><input id="name" class="nameInput" maxlength="32" placeholder="app-name" autocomplete="off"><button class="primary" id="saveBtn">Save</button><button id="runBtn">Run</button><button id="stopBtn">Stop</button><button class="danger" id="deleteBtn">Delete</button></div>
+      <textarea id="code" class="code" spellcheck="false" aria-label="JavaScript editor"></textarea>
+      <div class="hint">Elk JavaScript is intentionally small: use <code>let</code> instead of <code>const</code>/<code>var</code>; statements need semicolons; no standard JS library. Hardware APIs include <code>gpio_mode()</code>, <code>gpio_write()</code>, <code>gpio_read()</code>, <code>delay_ms()</code>, <code>app_should_stop()</code>, and <code>millis()</code>.</div>
+      <div class="status">
+        <div class="stat"><b id="heap">-</b><span>free heap</span></div>
+        <div class="stat"><b id="minHeap">-</b><span>min free heap</span></div>
+        <div class="stat"><b id="uptime">-</b><span>uptime</span></div>
+        <div class="stat"><b id="current">idle</b><span>running app</span></div>
+        <div class="stat"><b id="stopState">no</b><span>stop requested</span></div>
+      </div>
+      <div id="log" class="log" hidden></div>
+    </section>
+  </div>
+</div>
+
+<div id="passwordModal" class="modalBack hidden">
+  <section class="modal">
+    <h2>Change password</h2>
+    <p class="hint">Your current session stays signed in after the change; other sessions are invalidated.</p>
+    <div class="field"><label for="newPassword">New password</label><input id="newPassword" type="password" maxlength="128" autocomplete="new-password"></div>
+    <div class="field"><label for="newPassword2">Confirm password</label><input id="newPassword2" type="password" maxlength="128" autocomplete="new-password"></div>
+    <div id="passwordError" class="error"></div>
+    <div class="modalActions"><button id="passwordCancel">Cancel</button><button id="passwordSave" class="primary">Change password</button></div>
+  </section>
+</div>
+<script src="/app.js" defer></script>
+</body>
+</html>

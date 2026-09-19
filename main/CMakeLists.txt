@@ -1,0 +1,22 @@
+idf_component_register(
+    SRCS
+        "main.c"
+        "auth.c"
+        "wifi.c"
+        "storage.c"
+        "runner.c"
+        "web.c"
+    INCLUDE_DIRS "."
+    REQUIRES
+        esp_http_server
+        esp_wifi
+        esp_event
+        esp_netif
+        esp_hw_support
+        nvs_flash
+        esp_driver_gpio
+        esp_timer
+        littlefs
+        mbedtls
+        elk
+)

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>ESP-JS OS — Wi-Fi Setup</title>
+  <link rel="stylesheet" href="/provision.css">
+  <script src="/provision.js" defer></script>
+</head>
+<body>
+  <main class="card">
+    <div class="badge">ESP-JS OS</div>
+    <h1>Connect this ESP32 to Wi-Fi</h1>
+    <p class="muted">You are in first-boot / recovery provisioning mode. Enter the Wi-Fi network this device should use, then it will reboot and connect automatically.</p>
+
+    <form id="wifi-form">
+      <label for="ssid">Wi-Fi network name (SSID)</label>
+      <input id="ssid" name="ssid" type="text" maxlength="32" autocomplete="off" required autofocus>
+
+      <label for="password">Wi-Fi password</label>
+      <input id="password" name="password" type="password" maxlength="63" autocomplete="off">
+      <p class="hint">Leave the password empty only for an open Wi-Fi network.</p>
+
+      <button id="submit" type="submit">Save &amp; reboot</button>
+    </form>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+  </main>
+</body>
+</html>

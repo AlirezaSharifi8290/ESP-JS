@@ -1,0 +1,28 @@
+menu "ESP-JS OS"
+
+config APP_HTTP_PORT
+    int "HTTP server port"
+    range 1 65535
+    default 80
+
+config APP_JS_ARENA_SIZE
+    int "JavaScript runtime arena size (bytes)"
+    range 4096 65536
+    default 24576
+
+config APP_MAX_CODE_SIZE
+    int "Maximum JavaScript source size (bytes)"
+    range 1024 65536
+    default 32768
+
+config APP_HTTP_MAX_BODY
+    int "Maximum HTTP request body size (bytes)"
+    range 1024 65536
+    default 32768
+
+config APP_RUNNER_STACK
+    int "JavaScript app task stack size (bytes)"
+    range 8192 24576
+    default 12288
+
+endmenu
