@@ -8,18 +8,6 @@ ESP-JS OS combines a C/C++ system core with the [Elk](https://github.com/cesanta
 
 ---
 
-## ✨ Features
-
-### 🧩 JavaScript apps on the ESP32
-
-- Store multiple JavaScript apps in **LittleFS**.
-- Create, edit, save, run, stop, and delete apps from the web interface.
-- Apps are kept as `main.js` files under `/apps/<name>/`.
-- Each saved app gets a small `manifest.json` generated automatically.
-- App names may contain letters, digits, `-`, and `_`, with a maximum length of 32 characters.
-- The current storage implementation can list up to **64 apps**.
-- Only **one JavaScript app runs at a time** by design.
-
 ## ⚡ Quick Start
 
 1. Download `ESP-JS-AIO.bin` from [Releases](https://github.com/AlirezaSharifi8290/ESP-JS/releases).
@@ -31,7 +19,21 @@ ESP-JS OS combines a C/C++ system core with the [Elk](https://github.com/cesanta
 7. Complete first-boot authentication.
 8. Start writing JavaScript apps.
 
+## ✨ Features
+
+### 🧩 JavaScript apps on the ESP32
+
+- Store multiple JavaScript apps in **LittleFS**.
+- Create, edit, save, run, stop, and delete apps from the web interface.
+- Apps are kept as `main.js` files under `/apps/<name>/`.
+- Each saved app gets a small `manifest.json` generated automatically.
+- App names may contain letters, digits, `-`, and `_`, with a maximum length of 32 characters.
+- The current storage implementation can list up to **64 apps**.
+- Only **one JavaScript app runs at a time** by design.
+- 
 ### 🖥️ Browser-based IDE
+
+![ESP-JS OS Browser IDE and dashboard](images/ui.png)
 
 - Built-in JavaScript editor served directly by the ESP32.
 - Local browser drafts using `localStorage`, so unsaved edits can survive a page refresh.
@@ -82,6 +84,8 @@ print("blink finished");
 
 ### 📡 Wi-Fi provisioning
 
+![ESP-JS OS Wi-Fi provisioning portal](images/provisioning.png)
+
 Wi-Fi credentials are **not compiled into the firmware**.
 
 On first boot, or when the saved network cannot be reached within the connection attempt, the ESP32 can start a protected provisioning access point:
@@ -101,6 +105,8 @@ http://192.168.4.1/
 After Wi-Fi credentials are submitted, they are stored through the ESP-IDF Wi-Fi configuration system and the device reboots. The project enables Wi-Fi NVS storage, so the saved station configuration persists across reboots.
 
 ### 🔐 Password-protected web portal
+
+![ESP-JS OS first-boot authentication setup](images/first_boot.png)
 
 The normal web console is protected by a first-boot authentication flow.
 
