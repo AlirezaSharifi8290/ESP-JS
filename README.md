@@ -33,6 +33,8 @@ ESP-JS OS combines a C/C++ system core with the [Elk](https://github.com/cesanta
 
 ### 🖥️ Browser-based IDE
 
+![ESP-JS OS Dashboard](images/ui.png)
+
 - Built-in JavaScript editor served directly by the ESP32.
 - Local browser drafts using `localStorage`, so unsaved edits can survive a page refresh.
 - `Ctrl+S` / `Cmd+S` saves the current app.
@@ -82,6 +84,8 @@ print("blink finished");
 
 ### 📡 Wi-Fi provisioning
 
+![Wi-Fi provisioning](images/provisioning.png)
+
 Wi-Fi credentials are **not compiled into the firmware**.
 
 On first boot, or when the saved network cannot be reached within the connection attempt, the ESP32 can start a protected provisioning access point:
@@ -101,6 +105,8 @@ http://192.168.4.1/
 After Wi-Fi credentials are submitted, they are stored through the ESP-IDF Wi-Fi configuration system and the device reboots. The project enables Wi-Fi NVS storage, so the saved station configuration persists across reboots.
 
 ### 🔐 Password-protected web portal
+
+![Password](images/first_boot.png)
 
 The normal web console is protected by a first-boot authentication flow.
 
