@@ -20,6 +20,17 @@ ESP-JS OS combines a C/C++ system core with the [Elk](https://github.com/cesanta
 - The current storage implementation can list up to **64 apps**.
 - Only **one JavaScript app runs at a time** by design.
 
+## ⚡ Quick Start
+
+1. Download `ESP-JS-AIO.bin` from [Releases](https://github.com/AlirezaSharifi8290/ESP-JS/releases).
+2. Flash it to a compatible 4 MB classic ESP32.
+3. Connect to the `ESP-JS-OS-XXXXXX` Wi-Fi network using the AP password printed in the serial monitor.
+4. Open `http://192.168.4.1/`.
+5. Configure Wi-Fi.
+6. Open the ESP32's new IP address.
+7. Complete first-boot authentication.
+8. Start writing JavaScript apps.
+
 ### 🖥️ Browser-based IDE
 
 - Built-in JavaScript editor served directly by the ESP32.
@@ -206,7 +217,7 @@ The project defaults to a **4 MB flash** layout and provides a custom partition 
 
 The provided partition table occupies the full 4 MiB address range from `0x000000` through `0x400000`.
 
-The build is therefore intended for a compatible classic-ESP32-style **4 MB flash configuration**. Do not assume this exact partition map is suitable for another ESP32-family chip or a board with a different flash size.
+The current release is built and tested for the classic ESP32 with 4 MB flash. Do not assume this exact partition map is suitable for another ESP32-family chip or a board with a different flash size.
 
 ---
 
@@ -303,7 +314,7 @@ esptool --chip esp32 write-flash 0x0 ESP-JS-AIO.bin
 ### Requirements
 
 - ESP32-compatible development board with a compatible **4 MB flash** layout
-- ESP-IDF **6.x** development environment
+- ESP-IDF **6.1** development environment
 - Python environment used by ESP-IDF
 - Git / network access for the Elk fetch step
 - A serial connection for flashing and first-boot setup
@@ -313,7 +324,7 @@ esptool --chip esp32 write-flash 0x0 ESP-JS-AIO.bin
 ```bash
 git clone https://github.com/AlirezaSharifi8290/ESP-JS.git
 
-cd esp-js-os
+cd ESP-JS
 ```
 
 ### 2. Fetch Elk
@@ -606,8 +617,6 @@ The project intentionally does not attempt to provide:
 
 For a production/remote-access deployment, those concerns need to be addressed separately.
 
-The upstream Elk project is dual-licensed under AGPLv3 or a commercial license. Review its licensing terms before distributing this project in a way that includes Elk. See the upstream [Elk license](https://github.com/cesanta/elk/blob/master/LICENSE).
-
 ---
 
 ## 🛣️ Possible future work
@@ -634,9 +643,9 @@ These are **future ideas**, not current features.
 
 The **original ESP-JS OS source code** in this repository is licensed under the [MIT License](LICENSE).
 
-ESP-JS OS also uses third-party components with their own licenses. In particular, **Elk is dual-licensed under AGPLv3 or a commercial license** and is fetched by the build scripts from the upstream project. The root MIT license does **not** relicense Elk. See [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) for the dependency notices and upstream license references.
+ESP-JS OS also uses third-party components with their own licenses. In particular, **Elk is dual-licensed under AGPLv3 or a commercial license** and is fetched by the build scripts from the upstream project. The root MIT license does **not** relicense Elk.
 
-> **Distribution note:** a firmware image that includes Elk is not automatically an MIT-only work. Choose and comply with the applicable Elk licensing terms when distributing firmware or other builds that include Elk.
+> **Distribution note:** Firmware images that include Elk are subject to the applicable Elk licensing terms in addition to the MIT license covering the original ESP-JS OS source code.
 
 ---
 
@@ -648,6 +657,6 @@ The goal is simple: make the ESP32 feel a little less like a board you constantl
 
 ## 🙏 Acknowledgments
 
-Special thanks to @sanyar-dev for their help, suggestions, and contributions during the development of ESP-JS-OS.
+Special thanks to @sanyar-dev for their help and suggestions during the development of ESP-JS-OS.
 
 Thank you for taking the time to help improve the project! ❤️
